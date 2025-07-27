@@ -176,9 +176,12 @@ export default function VendingMachine() {
           <img src="/images/6.png" alt="" width="60px" className="icon-page" />
         </div>
         
-        <div className="machine-title font-naroline text-sm">
+        <div className="machine-title font-naroline grid gap-2 ml-4" style={{ fontSize: '2.5rem !important' }}>
           CHISA<br />
-          <span className="font-naroline text-sm">VENDING MACHINE</span>
+          <span className="font-naroline mt-2" style={{ fontSize: '2.5rem !important' }}>
+            VENDING MACHINE
+          </span>
+
         </div>
         
         <div className="machine-foot left"></div>

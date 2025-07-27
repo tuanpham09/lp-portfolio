@@ -133,7 +133,7 @@ export default function CustomCursor() {
       {/* Main cursor */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-12 h-12 pointer-events-none z-[9999] opacity-0 scale-0"
+        className="fixed top-0 left-0 w-16 h-16 pointer-events-none z-[9999] opacity-0 scale-0"
         style={{
           transform: 'translate(-50%, -50%)',
           filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3)) drop-shadow(0 4px 8px rgba(0,0,0,0.2))'

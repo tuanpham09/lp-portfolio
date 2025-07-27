@@ -71,6 +71,7 @@ export default function FadeCard({ project, index }: FadeCardProps) {
             src={project.image} 
             alt={project.title}
             className="w-full h-full object-contain"
+            style={{ maxWidth: '70%' }}
           />
           <div className="absolute inset-0" />
         </motion.div>

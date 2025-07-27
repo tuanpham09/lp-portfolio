@@ -9,6 +9,7 @@ import Header from "@/components/header"
 import ScrollReveal, { FlipReveal, BounceReveal, SlideReveal, SmoothReveal, DistanceFade } from "@/components/scroll-reveal"
 import ScrollCards from "@/components/scroll-cards"
 import "../styles/fonts.css"
+import { useLenis } from "@/components/useLenis"
 
 export default function MeetVoraPortfolio() {
   const [time, setTime] = useState(0)
@@ -176,8 +177,8 @@ export default function MeetVoraPortfolio() {
                       visible: { opacity: 1, scale: 1, rotateY: 0 }
                     }}
                     transition={{
-                      duration: 1.2,
-                      delay: element.id * 0.1,
+                      duration: 2.2,
+                      delay: element.id * 0.05,
                       type: "spring",
                       stiffness: 80,
                       damping: 20,
@@ -280,9 +281,7 @@ export default function MeetVoraPortfolio() {
       </div>
 
       {/* Vending Machine Section */}
-      <DistanceFade delay={0.3} fadeStart={0.1} fadeEnd={0.9}>
-        <VendingMachine />
-      </DistanceFade>
+      <VendingMachine />
 
 
       {/* Welcome Banner */}
@@ -546,6 +545,14 @@ export default function MeetVoraPortfolio() {
 
                 {/* Project Stack Section */}
           <ScrollCards />
+
+
+          {/* footer */}
+          <div className="w-full bg-[#f34c26] relative overflow-hidden">
+            <div className="text-center text-white text-sm">
+              <img src="/images/footer.png" alt="" />
+            </div>
+          </div>
     </div>
   )
 }
