@@ -85,8 +85,14 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-naroline;
-  }
+  @apply bg-background text-foreground font-naroline;
+}
+  
+  /* Custom cursor for interactive elements */
+  
+  
+  /* Disabled cursor for disabled elements */
+  
 }
 
 @keyframes glitch {

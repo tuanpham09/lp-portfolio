@@ -1,0 +1,351 @@
+@font-face {
+  font-family: "Naroline";
+  src: 
+       url("/fonts/Naroline.otf") format("opentype"),
+       url("/fonts/Naroline.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Demibold";
+  src: 
+       url("/fonts/TT Fors Trial DemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.vending-machine-container {
+  background: #f44d25;
+  min-height: 100vh;
+  font-family: 'Naroline', 'Arial Rounded MT Bold', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.vending-machine {
+  position: relative;
+  width: 1000px;
+  height: 700px;
+  background: #ffe85c;
+  border-radius: 60px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* --- Khe nhận hàng (slot) --- */
+.machine-slot {
+  width: 50%;
+  height: 20%;
+  background: #6fd6ff;
+  border: 10px solid #ff7f2a;
+  border-radius: 28px;
+  position: absolute;
+  bottom: 38px;
+  box-shadow: 0 4px 0 #ffb84d;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 8.5%;
+}
+
+.machine-slot::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.28) 0 22px, transparent 26px 71px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* --- Bàn phím số --- */
+.keypad {
+  position: absolute;
+  right: 60px;
+  top: 80px;
+  width: 280px;
+  height: 320px;
+  background: #8de1ff;
+  border-radius: 36px;
+  box-shadow: 10px 10px 0 #ffb84d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  border: none;
+  overflow: visible;
+}
+
+.keypad-label {
+  margin-top: 22px;
+  margin-bottom: 10px;
+  background: #0d2d88;
+  color: #fff;
+  padding: 8px 24px 8px 24px;
+  border-radius: 16px;
+  font-weight: normal;
+  font-size: 14px;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 0 #0a2c6b;
+  width: 85%;
+  height: 48px;
+  text-align: center;
+  position: relative;
+  align-items: center;
+  z-index: 3;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-family: 'Naroline', 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+.keypad-panel {
+  position: relative;
+  background: repeating-linear-gradient(138deg, rgba(255, 255, 255, 0.1) 0 17px, transparent 29px 76px), #ff7f2a;
+  border-radius: 28px;
+  box-shadow: 0 4px 0 #ffb84d;
+  padding: 24px 18px 16px 18px;
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  z-index: 2;
+}
+
+.keypad-nums {
+  grid-column: 1 / -1;
+  display: contents;
+}
+
+.keypad-nums button {
+  width: 56px;
+  height: 36px;
+  background: #ffe85c;
+  color: #1a3cff;
+  font-size: 1.3em;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px / 28px;
+  box-shadow: 0 2px 0 #ffb84d;
+
+  transition: background 0.2s, transform 0.1s;
+  outline: none;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.keypad-nums button:active {
+  background: #ffb84d;
+  color: #ff7f2a;
+  transform: scale(0.95);
+}
+
+/* --- Machine window --- */
+.machine-window {
+  position: absolute;
+  left: 60px;
+  top: 60px;
+  width: 55%;
+  height: 400px;
+  overflow: hidden;
+  z-index: 2;
+  background-image: url('/images/8.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.machine-items {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 3;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 50%;
+  margin-top: 10px;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 160px;
+  min-height: 100px;
+  justify-content: center;
+}
+
+.machine-title {
+  position: absolute;
+  right: 60px;
+  bottom: 90px;
+  color: #ff7f2a;
+  font-size: 3em;
+  font-family: 'Naroline', 'Arial Rounded MT Bold', Arial, sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 2px 0 #fffbe6, 0 0 8px #ffb84d;
+  font-variant: small-caps;
+  font-weight: normal;
+}
+
+.machine-title span {
+  display: block;
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  font-family: 'Naroline', 'Arial Rounded MT Bold', Arial, sans-serif;
+  font-weight: normal;
+}
+
+.machine-foot {
+  position: absolute;
+  width: 100px;
+  height: 22px;
+  background: #3ac6ff;
+  border-radius: 8px;
+  bottom: -18px;
+  z-index: 1;
+}
+
+.machine-foot.left {
+  left: 80px;
+}
+
+.machine-foot.right {
+  right: 80px;
+}
+
+@keyframes rollToSlot {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(0px, 100px) rotate(20deg);
+  }
+  50% {
+    transform: translate(50px, 200px) rotate(80deg);
+  }
+  75% {
+    transform: translate(100px, 250px) rotate(160deg);
+  }
+  100% {
+    transform: translate(140px, 280px) rotate(280deg);
+    opacity: 0.85;
+  }
+}
+
+.icon-page {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+@keyframes dustFade {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+    filter: blur(4px);
+  }
+}
+
+.dust {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(ellipse at center, #00000022 0%, transparent 80%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: dustFade 1.2s ease-out forwards;
+}
+
+.flash {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #ffffffcc 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: dustFade 0.6s ease-out forwards;
+}
+
+.marquee {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 8s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .vending-machine {
+    width: 800px;
+    height: 560px;
+  }
+  
+  .machine-window {
+    width: 50%;
+    height: 320px;
+  }
+  
+  .keypad {
+    width: 220px;
+    height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vending-machine {
+    width: 600px;
+    height: 420px;
+  }
+  
+  .machine-window {
+    width: 45%;
+    height: 240px;
+  }
+  
+  .keypad {
+    width: 180px;
+    height: 200px;
+  }
+  
+  .machine-title {
+    font-size: 2em;
+  }
+} 

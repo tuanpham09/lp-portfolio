@@ -1,0 +1,36 @@
+/* Import Google Fonts as fallback */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Custom Fonts */
+@font-face {
+  font-family: "Demibold";
+  src: 
+       url("/fonts/TT Fors Trial DemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Naroline";
+  src: 
+       url("/fonts/Naroline.otf") format("opentype"),
+       url("/fonts/Naroline.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font utility classes */
+.font-demibold {
+  font-family: 'Demibold', 'Arial Black', Arial, sans-serif;
+}
+
+.font-naroline {
+  font-family: 'Naroline', 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+/* Fallback for when custom fonts don't load */
+.font-fallback {
+  font-family: 'Inter', 'Arial Black', Arial, sans-serif;
+} 

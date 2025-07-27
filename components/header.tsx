@@ -33,82 +33,31 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 transform -translate-x-1/2 z-50 w-full px-6 md:px-8"
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b border-white/10"
       style={{
         opacity: isVisible ? opacity : 0,
         y: isVisible ? y : -20,
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
-      <motion.nav
-        className="flex items-center justify-between p-4 md:p-6 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex items-center space-x-8">
-          <motion.div 
-            className="text-2xl font-bold text-white font-naroline"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400 }}
-          >
-            Meet
-          </motion.div>
-          <div className="hidden md:flex items-center space-x-8 text-sm">
-            <motion.a 
-              href="#" 
-              className="text-white/80 hover:text-white transition-colors relative group font-naroline"
-              whileHover={{ y: -2 }}
-            >
-              About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
-            </motion.a>
-            <motion.a 
-              href="#" 
-              className="text-white/80 hover:text-white transition-colors relative group font-naroline"
-              whileHover={{ y: -2 }}
-            >
-              Work
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
-            </motion.a>
-            <motion.a 
-              href="#" 
-              className="text-white/80 hover:text-white transition-colors relative group font-naroline"
-              whileHover={{ y: -2 }}
-            >
-              Playground
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
-            </motion.a>
-            <motion.a 
-              href="#" 
-              className="text-white/80 hover:text-white transition-colors relative group font-naroline"
-              whileHover={{ y: -2 }}
-            >
-              Services
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
-            </motion.a>
-            <motion.a 
-              href="#" 
-              className="text-white/80 hover:text-white transition-colors relative group font-naroline"
-              whileHover={{ y: -2 }}
-            >
-              Contact
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full"></span>
-            </motion.a>
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between text-white">
+          <div className="flex items-center space-x-8">
+            <span className="font-semibold">About</span>
+            <span className="font-semibold">Work</span>
+          </div>
+          <div className="text-2xl font-bold">CHISA</div>
+          <div className="flex items-center space-x-8">
+            <span className="font-semibold">Contact</span>
+            <span className="font-semibold flex items-center">
+              Resume
+              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </span>
           </div>
         </div>
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Button 
-            variant="outline" 
-            className="border-white/20 text-white hover:bg-white/10 bg-transparent backdrop-blur-sm font-naroline"
-          >
-            Resume
-          </Button>
-        </motion.div>
-      </motion.nav>
+      </div>
     </motion.header>
   )
 } 

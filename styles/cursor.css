@@ -1,0 +1,32 @@
+/* Global Cursor Styles - Hide default cursor */
+* {
+  cursor: none !important;
+}
+
+/* Show default cursor for text inputs and textareas */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+textarea,
+[contenteditable="true"] {
+  cursor: text !important;
+}
+
+/* Show default cursor for resize handles */
+.resizable,
+[data-resizable="true"] {
+  cursor: move !important;
+}
+
+/* Show default cursor for drag and drop */
+[draggable="true"] {
+  cursor: grab !important;
+}
+
+[draggable="true"]:active {
+  cursor: grabbing !important;
+} 
