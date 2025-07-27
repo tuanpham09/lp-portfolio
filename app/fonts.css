@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Naroline';
+  src: url('/fonts/Naroline.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Fors Trial';
+  src: url('/fonts/TT Fors Trial Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Fors Trial';
+  src: url('/fonts/TT Fors Trial Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} 
