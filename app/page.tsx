@@ -42,7 +42,7 @@ export default function MeetVoraPortfolio() {
       content: (
         <div className="w-64 h-40 rounded-xl shadow-2xl overflow-hidden rotate-12">
           <img 
-            src="/images/preview-image/643.png" 
+            src="/images/preview-image/tote bag 2.jpg" 
             alt="Project 2" 
             className="w-full h-full object-cover"
           />
@@ -152,43 +152,41 @@ export default function MeetVoraPortfolio() {
       <div className="min-h-screen relative">
 
         {/* Main Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center pt-20">
-                      {/* Floating Elements - Circular Motion */}
-            <ScrollReveal stagger={true} delay={0.2}>
-              <div className="absolute inset-0 flex items-center justify-center top-20">
-              {floatingElements.map((element) => {
-                const angle = time * element.speed + element.offset
-                const x = Math.cos(angle) * element.radius
-                const y = Math.sin(angle) * element.radius
+        {/* Floating Elements - Circular Motion - Hero Section Only */}
+        <div className="absolute inset-0 flex items-center justify-center top-20 pointer-events-none z-20">
+          {floatingElements.map((element) => {
+            const angle = time * element.speed + element.offset
+            // Tạo hình oval bằng cách sử dụng radius khác nhau cho x và y
+            const x = Math.cos(angle) * element.radius * 1.2  // Nhân với 1.2 để tạo oval ngang
+            const y = Math.sin(angle) * element.radius * 0.8  // Nhân với 0.8 để tạo oval dọc
 
-                return (
-                  <motion.div
-                    key={element.id}
-                    className="absolute"
-                    style={{
-                      x: x,
-                      y: y,
-                      perspective: "1000px",
-                      transformStyle: "preserve-3d"
-                    }}
-                    variants={{
-                      hidden: { opacity: 0, scale: 0.8, rotateY: 90 },
-                      visible: { opacity: 1, scale: 1, rotateY: 0 }
-                    }}
-                    transition={{
-                      duration: 2.2,
-                      delay: element.id * 0.05,
-                      type: "spring",
-                      stiffness: 80,
-                      damping: 20,
-                    }}
-                  >
-                    {element.content}
-                  </motion.div>
-                )
-              })}
-            </div>
-            </ScrollReveal>
+            return (
+              <motion.div
+                key={element.id}
+                className="absolute"
+                style={{
+                  x: x,
+                  y: y,
+                  perspective: "1000px",
+                  transformStyle: "preserve-3d"
+                }}
+                initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                transition={{
+                  duration: 2.2,
+                  delay: element.id * 0.05,
+                  type: "spring",
+                  stiffness: 80,
+                  damping: 20,
+                }}
+              >
+                {element.content}
+              </motion.div>
+            )
+          })}
+        </div>
+
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center pt-20">
 
           {/* Hero Text */}
           <ScrollReveal direction="up" delay={0.5} distance={100}>
@@ -216,8 +214,8 @@ export default function MeetVoraPortfolio() {
                 <div className="absolute inset-0 from-transparent  to-transparent"></div>
               </div>
               
-              <div className="text-6xl md:text-8xl lg:text-9xl font-bold text-white">
-                <img src="/images/chisa white.png" alt="" />
+              <div className="text-4xl md:text-8xl lg:text-9xl font-bold text-white">
+                <img src="/images/chisa white.png" alt="" width={450}/>
               </div>
             </motion.div>
 
@@ -280,7 +278,7 @@ export default function MeetVoraPortfolio() {
       </div>
 
       {/* Vending Machine Section */}
-      <VendingMachine />
+      <VendingMachine/>
 
 
       {/* Welcome Banner */}
@@ -427,23 +425,61 @@ export default function MeetVoraPortfolio() {
         </div>
 
         {/* Main Title */}
-        <motion.h2
-          className="text-4xl md:text-6xl font-bold text-white tracking-wider mb-8 relative z-10 text-center"
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            duration: 1,
-            delay: 0.3,
-            type: "spring",
-            stiffness: 100,
-          }}
-          style={{
-            textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-            fontFamily: "'Arial Rounded MT Bold', Arial, sans-serif"
-          }}
-        >
-          WELCOME TO MY VENDING BRAIN
-        </motion.h2>
+        <motion.svg
+  viewBox="0 0 1000 150"
+  className="w-full h-32 mx-auto z-10 relative mb-8"
+  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  transition={{
+    duration: 1,
+    delay: 0.3,
+    type: "spring",
+    stiffness: 100,
+  }}
+>
+  {/* Đường cong nhẹ hơn (giảm từ y=200 → y=160) */}
+  <path
+    id="wavePath"
+    d="M 100 120 Q 300 160 500 120 T 900 120"
+    fill="transparent"
+  />
+
+  {/* Chữ cong chính */}
+  <text
+    fill="white"
+    fontSize="34"
+    fontFamily="'Naroline', 'Arial Rounded MT Bold', sans-serif"
+    letterSpacing="6"
+    fontWeight="bold"
+  >
+    <textPath href="#wavePath" startOffset="50%" textAnchor="middle">
+      WELCOME TO MY VENDING BRAIN
+    </textPath>
+  </text>
+
+  {/* Các ngôi sao lấp lánh */}
+  <g className="sparkles">
+    <circle cx="80" cy="30" r="2" fill="white" opacity="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="150" cy="25" r="1.5" fill="white" opacity="0.6">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="850" cy="25" r="2" fill="white" opacity="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="920" cy="35" r="1.5" fill="white" opacity="0.6">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.8s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="40" r="1" fill="white" opacity="0.7">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="1.2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="800" cy="40" r="1" fill="white" opacity="0.7">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="1.6s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</motion.svg>
+
 
         {/* Description Text */}
         <motion.div
@@ -461,10 +497,10 @@ export default function MeetVoraPortfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            style={{
-              fontFamily: "'Arial Rounded MT Bold', Arial, sans-serif",
-              textShadow: "0 1px 2px rgba(0,0,0,0.2)"
-            }}
+                          style={{
+                fontFamily: "'TT Fors Black Outline Trial', Arial, sans-serif",
+                textShadow: "0 1px 2px rgba(0,0,0,0.2)"
+              }}
           >
             This is Chisa, the girl who loves cute<br />
             things and the person who turns midnight<br />
@@ -500,7 +536,7 @@ export default function MeetVoraPortfolio() {
       </DistanceFade>
 
       {/* Featured Works */}
-      <DistanceFade delay={0.2} fadeStart={0.1} fadeEnd={0.9}>
+      <DistanceFade delay={0.2} fadeStart={0.1} fadeEnd={0.9} className="mt-28">
         <div className="w-full bg-[#f34c26] relative overflow-hidden">
         {/* Cloud background */}
         <div className="">

@@ -79,7 +79,7 @@ export default function ScrollCards() {
       {/* Navigation Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between text-white">
+          <div className="flex items-center justify-center text-white gap-12">
             <div className="flex items-center space-x-8">
               <span className="font-semibold">About</span>
               <span className="font-semibold">Work</span>

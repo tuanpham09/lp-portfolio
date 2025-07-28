@@ -25,7 +25,7 @@ const projects: Project[] = [
     id: 2,
     title: "Chiso Mire Collection",
     description: "3D figurines and merchandise design",
-    image: "/images/preview-image/643.png",
+    image: "/images/preview-image/tote bag 2.jpg",
     category: "Product Design",
     color: "#ffb84d"
   },
