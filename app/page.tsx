@@ -9,7 +9,6 @@ import Header from "@/components/header"
 import ScrollReveal, { FlipReveal, BounceReveal, SlideReveal, SmoothReveal, DistanceFade } from "@/components/scroll-reveal"
 import ScrollCards from "@/components/scroll-cards"
 import "../styles/fonts.css"
-import { useLenis } from "@/components/useLenis"
 
 export default function MeetVoraPortfolio() {
   const [time, setTime] = useState(0)
